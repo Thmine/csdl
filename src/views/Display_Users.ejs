@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Manage User Information Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Role ID</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dataUser[i].id %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].username %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].password %>
+                    </td>
+                    <td>
+                        <%= dataUser[i].role %>
+                    </td>
+                    <td>
+                        <a href="/edit_User?id=<%=dataUser[i].id %>" type="button">Edit</a>
+                        <a href="/delete_User?id=<%=dataUser[i].id %>" type="button">Delete</a>
+                    </td>
+                </tr>
+                <% } %>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
